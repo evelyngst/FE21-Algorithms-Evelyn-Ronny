@@ -6,12 +6,12 @@ DEF MIN = 60
 INPUT numberInSeconds
 
 weeks = ROUND DOWN(numbersInSeconds / WEEK)
-x = numberInSeconds % WEEK
-days = ROUND DOWN (x / DAY)
-x = x % DAY
-hours = ROUND DOWN (x / HOUR)
-x = x % HOUR
-mins = ROUND DOWN (x / MIN)
-sec = x % MINS
+numberInSeconds = numberInSeconds % WEEK
+days = ROUND DOWN (numberInSeconds / DAY)
+numberInSeconds = numberInSeconds % DAY
+hours = ROUND DOWN (numberInSeconds / HOUR)
+numberInSeconds = numberInSeconds % HOUR
+mins = ROUND DOWN (numberInSeconds / MIN)
+sec = numberInSeconds % MINS
 
 OUTPUT weeks "weeks" + days "days" + hours "hours" + mins "minutes" + sec "seconds"

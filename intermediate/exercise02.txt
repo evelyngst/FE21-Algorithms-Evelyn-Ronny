@@ -1,10 +1,34 @@
 INPUT amount
+origAmount = amount
 
 hundreds = ROUND DOWN(amount / 100)
-x = amount % 100
-fifties = ROUND DOWN (x / 50)
-x = x % 50
-twenties = ROUND DOWN (x / 20)
-tens = x % 20
+IF AreAvailable(100, hundreds) THEN
+    amount = amount % 100
+END IF
 
-OUTPUT hundreds + fifites + twenties + tens
+fifties = ROUND DOWN (amount / 50)
+IF AreAvailable(50, fifties) THEN
+    amount = amount % 50
+END IF
+
+twenties = ROUND DOWN (amount / 20)
+IF AreAvailable(20, twenties) THEN
+    tens = amount % 20
+ELSE
+    tens = amount / 10
+END IF
+
+IF (hundreds + fifties + twenties + tens == origAmount)
+    OUTPUT hundreds + fifites + twenties + tens
+ELSE
+    OUTPUT "Not enough money"
+
+
+
+
+PROCEDURE AreAvailable(denomination, amount)
+    IF amount times demoniation is available THEN
+        RETURN TRUE
+    ELSE
+        RETURN FALSE
+END PROCEDURE
