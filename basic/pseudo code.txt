@@ -1,0 +1,21 @@
+START
+OUTPUT "Decide upper limit"
+INPUT "user answer"
+STORE "user answer" in "limit"
+GENERATE number >= 1 and number <= "limit"
+STORE number in "box"
+
+REPEAT
+    OUTPUT "Choose number between 1 and "limit""
+    INPUT "user answer"
+    STORE "user answer" in "input"
+
+    IF "input" > "box" THEN
+        OUTPUT "My number is lower than box, guess again lower!"
+    ELSE IF "input" < "box" THEN
+        OUTPUT "My number is higher than box, guess again higher!"
+
+UNTIL "input" != "box"
+
+OUTPUT "You are correct: input equals box"
+END
