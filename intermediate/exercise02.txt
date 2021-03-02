@@ -1,0 +1,10 @@
+INPUT amount
+
+hundreds = ROUND DOWN(amount / 100)
+x = amount % 100
+fifties = ROUND DOWN (x / 50)
+x = x % 50
+twenties = ROUND DOWN (x / 20)
+tens = x % 20
+
+OUTPUT hundreds + fifites + twenties + tens
