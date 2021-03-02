@@ -1,0 +1,17 @@
+DEF WEEK = 604800
+DEF DAY = 86400
+DEF HOUR = 3600
+DEF MIN = 60
+
+INPUT numberInSeconds
+
+weeks = ROUND DOWN(numbersInSeconds / WEEK)
+x = numberInSeconds % WEEK
+days = ROUND DOWN (numbersInSeconds / x)
+x = x % DAY
+hours = ROUND DOWN (numbersInSeconds / x)
+x = x % HOUR
+mins = ROUND DOWN (numbersInSeconds / x)
+sec = x % MIN
+
+OUTPUT weeks "weeks" + days "days" + hours "hours" + mins "minutes" + sec "seconds"
